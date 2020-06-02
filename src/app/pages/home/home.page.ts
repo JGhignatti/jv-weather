@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
+import { select, Store } from '@ngrx/store';
+
+import * as fromHomeActions from './state/home.actions';
+import * as fromHomeSelectors from './state/home.selectors';
+
 @Component({
   selector: 'jv-home',
   templateUrl: './home.page.html',
@@ -10,7 +15,9 @@ export class HomePage implements OnInit {
 
   searchControl: FormControl;
 
-  constructor() {
+  text: string;
+
+  constructor(private store: Store) {
   }
 
   ngOnInit() {
@@ -18,6 +25,6 @@ export class HomePage implements OnInit {
   }
 
   doSearch() {
-    console.log(this.searchControl.value);
+    const text = this.searchControl.value;
   }
 }
