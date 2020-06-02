@@ -1,0 +1,23 @@
+.container-fluid {
+  margin: 0;
+  padding: 32px 0 0;
+
+  .search-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 16px;
+
+    > div {
+      width: 100%;
+
+      > div {
+        display: flex;
+
+        > .form-control {
+          margin-right: 8px;
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+}
