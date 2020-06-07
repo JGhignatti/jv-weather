@@ -7,6 +7,7 @@ import { takeUntil, map } from 'rxjs/operators';
 
 import { CityWeather } from 'src/app/shared/models/weather.model';
 import { Bookmark } from 'src/app/shared/models/bookmark.model';
+import { CityTypeaheadItem } from 'src/app/shared/models/city-typeahead-item.model';
 import * as fromHomeActions from '../../state/home.actions';
 import * as fromHomeSelectors from '../../state/home.selectors';
 import * as fromBookmarksSelectors from '../../../bookmarks/state/bookmarks.selectors';
@@ -27,6 +28,7 @@ export class HomePage implements OnInit, OnDestroy {
   isCurrentFavorite$: Observable<boolean>;
 
   searchControl: FormControl;
+  searchControlWithAutocomplete: FormControl;
 
   text: string;
 
@@ -37,6 +39,15 @@ export class HomePage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.searchControl = new FormControl('', Validators.required);
+    this.searchControlWithAutocomplete = new FormControl(undefined);
+    
+    this.searchControlWithAutocomplete.valueChanges
+      .pipe(takeUntil(this.componentDestroyed$))
+      .subscribe((value: CityTypeaheadItem) => {
+        if (!!value) {
+          this.store.dispatch(fromHomeActions.loadCurrentWeatherById({id: value.geonameid.toString()}));
+        }
+      });
 
     this.cityWeather$ = this.store.pipe(select(fromHomeSelectors.selectCurrentWeather));
     this.cityWeather$
