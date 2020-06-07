@@ -24,6 +24,7 @@
   <div *ngIf="!(loading$ | async) && !(error$ | async) && !!cityWeather">
     <jv-current-weather [cityWeather]="cityWeather"
                         [isFavorite]="isCurrentFavorite$ | async"
+                        [unit]="unit$ | async"
                         (toggleBookmark)="onToggleBookmark()"></jv-current-weather>
   </div>
 
