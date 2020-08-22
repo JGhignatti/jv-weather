@@ -12,7 +12,6 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~9.1.9",
-    "@angular/cdk": "^9.2.4",
     "@angular/common": "~9.1.9",
     "@angular/compiler": "~9.1.9",
     "@angular/core": "~9.1.9",
@@ -20,14 +19,8 @@
     "@angular/platform-browser": "~9.1.9",
     "@angular/platform-browser-dynamic": "~9.1.9",
     "@angular/router": "~9.1.9",
-    "@ngrx/effects": "^9.2.0",
-    "@ngrx/router-store": "^9.2.0",
-    "@ngrx/store": "^9.2.0",
-    "@ngrx/store-devtools": "^9.2.0",
     "bootstrap": "^4.5.0",
     "js-search": "^2.0.0",
-    "moment-timezone": "^0.5.31",
-    "ngx-bootstrap": "^5.6.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
