@@ -13,6 +13,8 @@ export class CurrentWeatherComponent{
 
   // ngOnInit(): void {
   // }
+
+  @Input() isFavorite: boolean;
 @Input() cityWeather: CityWeather;
 @Output() toggleBookmark = new EventEmitter();
 

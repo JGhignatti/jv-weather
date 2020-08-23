@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="search-container">
     <div class="form-group">
-      <label>{{text}}</label>
+      <label>Pesquisar</label>
       <div>
         <input class="form-control" [formControl]="searchControl" />
         <button
@@ -24,6 +24,7 @@
   <div *ngIf="!(loading$ | async) && !(error$ | async) && !!cityWeather">
     <jv-current-weather
       [cityWeather]="cityWeather"
+      [isFavorite]="isCurrentFavorite$ | async"
       (toggleBookmark)="onToggleBookmark()"
     ></jv-current-weather>
   </div>
@@ -31,18 +32,4 @@
   <div *ngIf="!(loading$ | async) && error$ | async">
     <a>Tentar novamente</a>
   </div>
-
-  <!-- Loading -->
-  <!-- <jv-loader *ngIf="loading$ | async"></jv-loader> -->
-
-  <!-- <div *ngIf="!(loading$ | async) && !(error$ | async) && !!cityWeather">
-    <jv-current-weather
-      [cityWeather]="cityWeather"
-      (toggleBookmark)="onToggleBookmark()"
-    ></jv-current-weather>
-  </div> -->
-
-  <!-- <div *ngIf="!(loading$ | async) && error$ | async">
-    <a>Tentar novamente</a>
-  </div> -->
 </div>
