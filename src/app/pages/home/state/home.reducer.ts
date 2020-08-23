@@ -1,4 +1,5 @@
-import { createReducer, Action } from '@ngrx/store'
+import { createReducer, Action, on } from '@ngrx/store'
+
 import * as fromHomeActions from './home.actions';
 
 export interface HomeState {
@@ -11,6 +12,7 @@ export const homeInitialState: HomeState = {
 
 const reducer = createReducer(
   homeInitialState,
+  on(fromHomeActions.changeText, (state, {text})=>({...state, text,})),
 );
 
 export function homeReducer(state: HomeState | undefined, action: Action): HomeState {
