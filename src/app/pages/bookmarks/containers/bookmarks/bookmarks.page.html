@@ -1,26 +1,30 @@
 <div class="container-fluid">
-    <div class="bookmarks-container">
-  
-      <div>
-        <h3>Favoritos</h3>
-  
-        <div *ngIf="!(bookmarks$ | async).length">Nenhum favorito adicionado</div>
-  
-        <ul class="list-unstyled">
-          <li *ngFor="let bookmark of bookmarks$ | async">
-            <a [routerLink]="['../details']">
-              {{ bookmark.name }}
-            </a>
-            <button class="btn btn-outline-dark btn-sm"
-                    (click)="removeBookmark(bookmark.id)">X</button>
-          </li>
-        </ul>
-  
-      </div>
-  
-      <div>
-        <label>Adicionar cidade aos favoritos</label>
-      </div>
-  
+  <div class="bookmarks-container">
+    <div>
+      <h3>Favoritos</h3>
+
+      <div *ngIf="!(bookmarks$ | async).length">Nenhum favorito adicionado</div>
+
+      <ul class="list-unstyled">
+        <li *ngFor="let bookmark of bookmarks$ | async">
+          <a
+            [routerLink]="['../details']"
+            [queryParams]="{lat: bookmark.coord.lat, lon: bookmark.coord.lon}"
+          >
+            {{ bookmark.name }}
+          </a>
+          <button
+            class="btn btn-outline-dark btn-sm"
+            (click)="removeBookmark(bookmark.id)"
+          >
+            X
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <label>Adicionar cidade aos favoritos</label>
     </div>
   </div>
+</div>

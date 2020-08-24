@@ -1,0 +1,26 @@
+<!-- <div class="container-fluid">
+  <jv-loader *ngIf="loading$ | async; else notLoading"></jv-loader>
+
+  <ng-template #notLoading>
+    <ng-container *ngIf="!(error$ | async)">
+      <h1>
+        {{ (details$ | async).city.name }}, {{ (details$ | async).city.country
+        }}
+      </h1>
+
+      <div class="card current-card">
+        <jv-detailed-weather
+          [weather]="(details$ | async).current"
+        ></jv-detailed-weather>
+      </div>
+
+      <jv-daily-weather
+        *ngFor="let daily of (details$ | async).daily"
+        [dailyWeather]="daily"
+        [timeZone]="(details$ | async).city.timeZone"
+      ></jv-daily-weather>
+    </ng-container>
+
+    <div *ngIf="error$ | async">Erro</div>
+  </ng-template>
+</div> -->
